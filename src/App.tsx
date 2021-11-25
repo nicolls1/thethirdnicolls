@@ -1,10 +1,42 @@
+import React from 'react'
+import {
+  AspectRatio,
+  Box,
+  Center,
+  Flex,
+  Icon,
+  Text,
+  Image,
+} from '@chakra-ui/react'
 import { useInterval } from '@chakra-ui/hooks'
-
 import firstpic from './images/firstpic.jpg'
 import './App.css'
-import React from 'react'
+import { SunIcon } from '@chakra-ui/icons'
 
 const END_DATE = new Date('2022-07-07T00:00:00')
+
+const Knob: React.FC = () => {
+  return (
+    <Box
+      bgColor="#1b3542"
+      borderRadius="full"
+      boxSizing="border-box"
+      width="4%"
+      padding="4%"
+      position="relative"
+      h="fit-content"
+    >
+      <Box
+        bgColor="white"
+        h="2vmin"
+        pos="absolute"
+        top="10%"
+        left="47%"
+        right="47%"
+      />
+    </Box>
+  )
+}
 
 function App() {
   const [countDownTime, setCountDownTime] = React.useState<number>(
@@ -18,20 +50,68 @@ function App() {
   var days = Math.floor(countDownTime / 1000 / 60 / (60 * 24))
   var date_diff = new Date(countDownTime)
 
+  const [lightOn, setLightOn] = React.useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={firstpic} className="Peanut-pic" alt="First picture" />
-        <p>
-          Arriving in approximately
-          <br />
-          {days} Days {date_diff.getHours()} Hours {date_diff.getMinutes()}{' '}
-          Minutes {date_diff.getSeconds()} Seconds
-          <br />
-          (July 7th, 2020)
-        </p>
-      </header>
-    </div>
+    <Center bgColor="white" h="100vh" w="100vw">
+      <Box bgColor="#c1c1c1" w="100vmin" h="100vmin">
+        <Box direction="row" bgColor="#526477" mt="1vmin" mx="2vmin" h="15vmin">
+          <Flex
+            direction="row"
+            h="full"
+            align="center"
+            gridGap="2vmin"
+            mx="2vmin"
+          >
+            <Knob />
+            <Knob />
+            <Flex flex="1" h="100%" align="center" justify="center">
+              <Box w="10%" ml="2vmin" />
+              <Center bgColor="black" h="50%" w="50%">
+                <Text color="white" fontSize="4vmin">
+                  {days}d {date_diff.getHours()}:{date_diff.getMinutes()}:
+                  {date_diff.getSeconds()}
+                </Text>
+              </Center>
+              <Icon
+                as={SunIcon}
+                ml="2vmin"
+                w="10%"
+                h="auto"
+                cursor="pointer"
+                onClick={() => setLightOn(!lightOn)}
+                color={lightOn ? 'white' : 'gray.400'}
+              />
+            </Flex>
+            <Knob />
+            <Knob />
+          </Flex>
+        </Box>
+        <Box
+          mt="6vmin"
+          h="4vmin"
+          bgColor="#566478"
+          borderRadius="5vmin"
+          mx="2vmin"
+        />
+        <Center
+          bgColor="black"
+          m="2vmin"
+          mt="6vmin"
+          h="66vmin"
+          borderRadius="4vmin"
+        >
+          <Image
+            src={firstpic}
+            alt="First one"
+            display={lightOn ? 'block' : 'none'}
+            w="85%"
+            h="auto"
+            pointerEvents="none"
+          />
+        </Center>
+      </Box>
+    </Center>
   )
 }
 
