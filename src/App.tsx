@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  AspectRatio,
-  Box,
-  Center,
-  Flex,
-  Icon,
-  Text,
-  Image,
-} from '@chakra-ui/react'
+import { Box, Center, Flex, Icon, Text, Image } from '@chakra-ui/react'
 import { useInterval } from '@chakra-ui/hooks'
 import firstpic from './images/firstpic.jpg'
 import './App.css'
