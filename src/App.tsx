@@ -61,8 +61,9 @@ function App() {
               <Box w="10%" ml="2vmin" />
               <Center bgColor="black" h="50%" w="50%">
                 <Text color="white" fontSize="4vmin">
-                  {days}d {date_diff.getHours()}:{date_diff.getMinutes()}:
-                  {date_diff.getSeconds()}
+                  {days}d {date_diff.getHours().toString().padStart(2, '0')}:
+                  {date_diff.getMinutes().toString().padStart(2, '0')}:
+                  {date_diff.getSeconds().toString().padStart(2, '0')}
                 </Text>
               </Center>
               <Icon
