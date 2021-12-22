@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Center, Flex, Icon, Text, Image } from '@chakra-ui/react'
 import { useInterval } from '@chakra-ui/hooks'
-import firstpic from './images/firstpic.jpg'
+import pic from './images/secondpic.jpg'
 import './App.css'
 import { SunIcon } from '@chakra-ui/icons'
 
@@ -95,8 +95,8 @@ function App() {
           borderRadius="4vmin"
         >
           <Image
-            src={firstpic}
-            alt="First one"
+            src={pic}
+            alt="Ultrasound picture"
             display={lightOn ? 'block' : 'none'}
             w="85%"
             h="auto"
