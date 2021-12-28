@@ -1,9 +1,14 @@
 import React from 'react'
 import { Box, Center, Flex, Icon, Text, Image } from '@chakra-ui/react'
 import { useInterval } from '@chakra-ui/hooks'
-import pic from './images/secondpic.jpg'
 import './App.css'
 import { SunIcon } from '@chakra-ui/icons'
+import ImageGallery from './components/ImageGallery/ImageGallery'
+import firstpic from './images/firstpic.jpg'
+import secondpic from './images/secondpic.jpg'
+import thirdpic from './images/thirdpic.jpg'
+import fourthpic from './images/fourthpic.jpg'
+import fifthpic from './images/fifthpic.jpg'
 
 const END_DATE = new Date('2022-07-07T00:00:00')
 
@@ -29,6 +34,29 @@ const Knob: React.FC = () => {
     </Box>
   )
 }
+
+const PICTURES = [
+  {
+    date: '2021-11-18',
+    url: firstpic,
+  },
+  {
+    date: '2021-12-22',
+    url: thirdpic,
+  },
+  {
+    date: '2021-12-22',
+    url: fourthpic,
+  },
+  {
+    date: '2021-12-22',
+    url: fifthpic,
+  },
+  {
+    date: '2021-12-22',
+    url: secondpic,
+  },
+]
 
 function App() {
   const [countDownTime, setCountDownTime] = React.useState<number>(
@@ -94,6 +122,10 @@ function App() {
           h="66vmin"
           borderRadius="4vmin"
         >
+          <Box display={lightOn ? 'block' : 'none'} w="85%" h="85%">
+            <ImageGallery images={PICTURES} />
+          </Box>
+          {/*
           <Image
             src={pic}
             alt="Ultrasound picture"
@@ -102,6 +134,7 @@ function App() {
             h="auto"
             pointerEvents="none"
           />
+          */}
         </Center>
       </Box>
     </Center>
