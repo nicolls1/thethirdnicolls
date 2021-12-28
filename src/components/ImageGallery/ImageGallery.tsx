@@ -90,17 +90,6 @@ const ImageGallery: React.FC<Props> = ({
               (transition && index === activeIndex + transition)) && (
               <LabelledImage {...image} />
             )
-          /**
-              <ChakraImage
-                key={image}
-                src={image}
-                width="400px"
-                height="300px"
-                objectFit="contain"
-                borderRadius="md"
-                display="inline-block"
-            />
-            */
         )}
       </Box>
       <IconButton

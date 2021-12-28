@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Center, Flex, Icon, Text, Image } from '@chakra-ui/react'
+import { Box, Center, Flex, Icon, Text } from '@chakra-ui/react'
 import { useInterval } from '@chakra-ui/hooks'
 import './App.css'
 import { SunIcon } from '@chakra-ui/icons'
@@ -125,16 +125,6 @@ function App() {
           <Box display={lightOn ? 'block' : 'none'} w="85%" h="85%">
             <ImageGallery images={PICTURES} />
           </Box>
-          {/*
-          <Image
-            src={pic}
-            alt="Ultrasound picture"
-            display={lightOn ? 'block' : 'none'}
-            w="85%"
-            h="auto"
-            pointerEvents="none"
-          />
-          */}
         </Center>
       </Box>
     </Center>
