@@ -20,7 +20,7 @@ const LabelledImage: React.FC<LabelledImageProps> = ({ date, url }) => {
     <Center
       pos="relative"
       display="inline-block"
-      width="31vw"
+      width="88vmin"
       height="100%"
       borderRadius="md"
       bgSize="cover"
