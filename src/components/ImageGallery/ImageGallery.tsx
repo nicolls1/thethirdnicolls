@@ -10,12 +10,12 @@ import {
 } from '@chakra-ui/react'
 import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons'
 
-interface LabelledImage {
+interface LabelledImageProps {
   date: string
   url: string
 }
 
-const LabelledImage: React.FC<LabelledImage> = ({ date, url }) => {
+const LabelledImage: React.FC<LabelledImageProps> = ({ date, url }) => {
   return (
     <Center
       pos="relative"
@@ -34,7 +34,7 @@ const LabelledImage: React.FC<LabelledImage> = ({ date, url }) => {
 }
 
 interface Props {
-  images: LabelledImage[]
+  images: LabelledImageProps[]
   activeIndex?: number
   onActiveIndexChange?: (newIndex: number) => void
 }
