@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Center, Flex, Icon, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Flex, Icon, Text } from '@chakra-ui/react'
 import { useInterval } from '@chakra-ui/hooks'
 import './App.css'
 import { SunIcon } from '@chakra-ui/icons'
@@ -9,6 +9,10 @@ import secondpic from './images/secondpic.jpg'
 import thirdpic from './images/thirdpic.jpg'
 import fourthpic from './images/fourthpic.jpg'
 import fifthpic from './images/fifthpic.jpg'
+import sixthpic from './images/sixthpic.jpg'
+import seventhpic from './images/seventhpic.jpg'
+import eighthpic from './images/eighthpic.jpg'
+import WordGame from './components/WordGame'
 
 const END_DATE = new Date('2022-07-07T00:00:00')
 
@@ -54,7 +58,19 @@ const PICTURES = [
   },
   {
     date: '2021-12-22',
+    url: sixthpic,
+  },
+  {
+    date: '2021-12-22',
     url: secondpic,
+  },
+  {
+    date: '2022-02-22',
+    url: seventhpic,
+  },
+  {
+    date: '2022-02-22',
+    url: eighthpic,
   },
 ]
 
@@ -71,6 +87,12 @@ function App() {
   var date_diff = new Date(countDownTime)
 
   const [lightOn, setLightOn] = React.useState(false)
+
+  const [isGame, setIsGame] = React.useState(false)
+
+  if (isGame) {
+    return <WordGame />
+  }
 
   return (
     <Center bgColor="white" h="100vh" w="100vw">
@@ -114,7 +136,15 @@ function App() {
           bgColor="#566478"
           borderRadius="5vmin"
           mx="2vmin"
-        />
+        >
+          {lightOn && (
+            <Center h="full">
+              <Button onClick={() => setIsGame(true)} size="md" h="full">
+                Look Inside
+              </Button>
+            </Center>
+          )}
+        </Box>
         <Center
           bgColor="black"
           m="2vmin"

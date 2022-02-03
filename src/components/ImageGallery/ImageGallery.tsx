@@ -20,7 +20,7 @@ const LabelledImage: React.FC<LabelledImageProps> = ({ date, url }) => {
     <Center
       pos="relative"
       display="inline-block"
-      width="88vmin"
+      width="82vmin"
       height="100%"
       borderRadius="md"
       bgSize="cover"
@@ -49,7 +49,6 @@ const ImageGallery: React.FC<Props> = ({
     onChange: onActiveIndexChange,
     defaultValue: images.length - 1,
   })
-  //React.useState(0)
   const [transition, setTransition] = React.useState<number>()
   useTimeout(
     () => {
@@ -88,7 +87,7 @@ const ImageGallery: React.FC<Props> = ({
           (image, index) =>
             (index === activeIndex ||
               (transition && index === activeIndex + transition)) && (
-              <LabelledImage {...image} />
+              <LabelledImage key={index} {...image} />
             )
         )}
       </Box>
@@ -178,8 +177,9 @@ const ImageGallery: React.FC<Props> = ({
                 0
               )
             }px)`}
+            width="fit-content"
           >
-            {images.map((image, idx) => (
+            {images.map((_image, idx) => (
               <Box
                 key={idx}
                 bgColor="white"
